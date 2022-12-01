@@ -2,7 +2,7 @@
 
 if __name__ == "__main__":
 
-    from add_o.py import add
+    from add_o import add
     a = 1
     b = 2
 
