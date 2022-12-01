@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 
 if __name__ == "__main__":
     """Printing the num of lists as arguments with the use of len(argv)."""
