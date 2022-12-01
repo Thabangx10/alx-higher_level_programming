@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * check_list - will check if the function rund=s a cycle
+ * check_list - will check if the function contains a cycle
  *
  * @list: linked list to check
  *
@@ -9,8 +9,8 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *slow = *list
-	listint_t *fast = *list
+	listint_t *slow = *list;
+	listint_t *fast = *list;
 
 	if(!list)
 		return(0);
