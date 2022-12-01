@@ -1,5 +1,4 @@
-#!/bin/bash
-#include "list.h"
+#include "lists.h"
 
 /**
  * check_list - will check if the function rund=s a cycle
