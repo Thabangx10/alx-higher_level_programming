@@ -3,14 +3,17 @@
 if __name__ == "__main__":
     """Printing the num of lists as arguments with the use of len(argv)."""
     import sys
-
-    count = len(sys.argv) - 1
+    argv = sys.argv[1:]
+    count = len(argv)
+    index = 1
     if count == 0:
-        print("0 arguments.")
+        print("{:d} arguments.". format(count))
     elif count == 1:
-        print("1 argument:")
+        print("{:d} argument:". format(count))
+        print("{:d}: {:s}". format(index, sys.argv[1:]))
     else:
-        print("{} arguments:". format(count))
-    """using the range function to iterate through the count function"""
-    for i in range(count):
-        print("{}: {}". format(i + 1, sys.argv[i + 1]))
+        print("{:d} arguments:". format(count))
+    """using the while loop to iterate through the count variable"""
+    while index <= count:
+        print("{:d}: {:s}". format(index, sys.argv[index]))
+        index += 1
