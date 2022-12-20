@@ -2,4 +2,5 @@
 
 """ Creating an empty class named "square" """
 class Square:
+    """Square"""
     pass
