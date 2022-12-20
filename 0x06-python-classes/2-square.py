@@ -8,7 +8,7 @@ class Square:
         if type(size) != int:
             raise TypeError('size must be an integer')
         
-        """if size is less than 0, raise a ValueError exception with the message size must be >=0 """
+        """if size is less than 0, raise a ValueError exception with the message size mu           st be >=0 """
         elif size < 0:
             raise ValueError('size must be >= 0')
         else:
