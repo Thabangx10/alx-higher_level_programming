@@ -1,10 +1,5 @@
 #!/user/bin/python3
 
-"""Private instance attribute: size:
-
-    property def size(self): to retrieve it
-
-    property setter def size(self, value)"""
 class Square:
     def __init__(self, size=0):
         self.__size = size
