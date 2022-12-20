@@ -4,5 +4,10 @@
    as an attribute to self"""
 
 class Square:
+    """Square"""
     def __init__(self, size):
+        """
+        Parameters:
+                   size (int): The size of the new square.
+        """
         self.__size = size
