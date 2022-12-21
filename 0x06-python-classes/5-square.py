@@ -1,12 +1,16 @@
-#!/user/bin/python3
+#!/usr/bin/python3
+
+"""Class Sqaure"""
 
 class Square:
+    """Square method"""
     def __init__(self, size=0):
+        """size (int): The size of the new square."""
         self.__size = size
 
-    #Property
     @property
     def size(self):
+        """Get/set the current size of the square."""
         return self.__size
 
     #Setter modifies
@@ -20,6 +24,7 @@ class Square:
             self.__size = value
 
     def area(self):
+        """Return the current area of the square."""
         return self.__size ** 2
 
     def my_print(self):
