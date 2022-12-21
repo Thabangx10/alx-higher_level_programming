@@ -3,15 +3,13 @@
 """documentation of the module."""
 
 class Square:
-    """Square methods."""
+    """Represent a square."""
     def __init__(self, size=0):
-        
-        """size must be an integer, otherwise raise a TypeError exception with the messa           ge size must be an integer.
-        
-        if size is less than 0, raise a ValueError exception with the message size must            be >= 0.
+        """Initialize a new square.
 
-        Public instance method: def area(self): that returns the current square area."""
-
+        Args:
+            size (int): The size of the new square.
+        """
         if not isinstance(size, int):
             raise TypeError('size must be integer')
         elif size < 0:
@@ -19,5 +17,5 @@ class Square:
         self.__size = size
 
     def area(self):
-         """Public instance method: def area(self): that returns the current square."""
+        """Public instance method: def area(self): that returns the current square."""
         return (self.__size * self.__size)
