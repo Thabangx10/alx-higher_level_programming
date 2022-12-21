@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 
-""" property setter def size(self, value): to set it:
-
-    size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
-
-    if size is less than 0, raise a ValueError exception with the message size must be >= 0
-    Public instance method: def area(self): that returns the current square area"""
+"""Define a class Square"""
 
 class Square:
+    """Represente a square"""
     def __init__(self, size=0):
-        """Private instance attribute: size:"""
+        """Initialize a new square
+
+        Args:
+            size (int): The size of the new square.
+        """
         self.__size = size
 
     @property
     def size(self):
-        """property def size(self): to retrieve it"""
+        """Get/set the current size of the square."""
         return self.__size
 
     @size.setter
@@ -27,5 +27,5 @@ class Square:
             self.__size = value
 
     def area(self):
-        """Public instance method: def area(self): that returns the current square area"""
+        """Returns the current square area"""
         return self.__size ** 2
