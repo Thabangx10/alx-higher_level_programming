@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 
-"""Class Sqaure"""
+"""Define a Square class."""
 
 class Square:
-    """Square method"""
+    """Represent a square."""
     def __init__(self, size=0):
-        """size (int): The size of the new square."""
+        """Initialize a new square
+
+        Args:
+            size (int): The size of the new square.
+        """
         self.__size = size
 
     @property
@@ -28,10 +32,9 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
+        """Print the square with the character #"""
         size = self.__size
 
-"""Public instance method: def my_print(self): that prints in stdout the square with the character #:
-         if size is equal to 0, print an empty line""" 
         if size == 0:
             print()
 
