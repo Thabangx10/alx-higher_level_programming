@@ -3,7 +3,8 @@
 """Defining a Rectangle"""
 
 class Rectangle:
-    """Representation of the triangle"""
+    """Representation of the triangle
+    """
     def __init__(self, width=0, height=0):
         """Initializing the new rectangle
 
@@ -48,7 +49,7 @@ class Rectangle:
 
     def perimeter(self):
         """Return the perimeter"""
-        return ((self.width * 2) + (self.height * 2))
+        return ((self.__width * 2) + (self.__height * 2))
 
     def __str__(self):
         """rectangle characters '#'"""
@@ -57,7 +58,7 @@ class Rectangle:
             return rect
 
         for i in range(self.height):
-            if i == self.__height -1:
+            if i == self.__height - 1:
                 rect += ('#' * self.__width)
             else:
                 rect += (('#' * self.__width) + '\n')
