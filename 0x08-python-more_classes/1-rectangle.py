@@ -16,10 +16,12 @@ class Rectangle:
     
     @property
     def width(self):
-        """Get/Set the width of the rectangle"""
+        """Get the width of the rectangle"""
         return self.__width
+    
     @width.setter
     def width(self, value):
+        """Set the width."""
         if type(value) != int:
            raise TypeError("width must be an integer")
         else value < 0:
@@ -28,11 +30,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/Set the height of the rectangle."""
+        """Get the height of the rectangle."""
         return self.__height
     
     @height.setter
     def height(self, value):
+        """Set the height."""
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value < 0:
