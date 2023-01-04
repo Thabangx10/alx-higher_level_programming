@@ -17,19 +17,19 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    @property
+    def width(self):
+        """Get width"""
+        return self.__width
+
     @width.setter
     def width(self, value):
         """Set width"""
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("must be an integer")
         if value < 0:
             raise ValueError("must be >= 0")
-        self.width = value
-
-    @property
-    def width(self):
-        """Get the width"""
-        return self.__width
+        self.__width = value
 
     @property
     def height(self):
@@ -39,7 +39,7 @@ class Rectangle:
     @height.setter
     def height(self, value):
         """Set the width"""
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("must be an integer")
         if value < 0:
             raise ValueError("must be >= 0")
@@ -78,4 +78,4 @@ class Rectangle:
     def __del__(self):
         """increment instance when __del__ is called"""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        type(self).number_of_instances -= 1
