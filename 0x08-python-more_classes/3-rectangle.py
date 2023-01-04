@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-
 """Defining a Rectangle"""
+
 class Rectangle:
-    """Repr of a rectangle"""
+    """Rectangle functions and attributes."""
 
     def __int__(self, width=0, height=0):
         """Initializing a new rectangle
@@ -14,8 +14,8 @@ class Rectangle:
               perimeter = (int * 2) + (int * 2)
               rect = representation of the rectangle using '#'
         """
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -28,6 +28,7 @@ class Rectangle:
             raise TypeError("value must be an integer")
         if value < 0:
             raise ValueError("value must be >= 0")
+        self.__width = value
 
     @property
     def height(self):
@@ -40,6 +41,7 @@ class Rectangle:
             raise TypeError("value must be an integer")
         if value < 0:
             raise ValueError("value must be >= 0")
+        self.__height = value
 
     def area(self):
         """Returns the area"""
@@ -53,10 +55,10 @@ class Rectangle:
 
     def __str__(self):
         """Repr the rectangle with '#' characters"""
+        rect = ""
         if self.__width == 0 or self.__height == 0:
-            return ("")
+            return rect
 
-        rect = []
         for i in range(self.__height):
             if i == self.__height -1:
                 rect += ('#' * self.width)
