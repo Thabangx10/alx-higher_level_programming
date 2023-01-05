@@ -5,7 +5,10 @@
 class Rectangle:
     """Rectangle functions
 
-    Atrributes include public instances"""
+    Atrributes:
+               public instances
+               print_symbol: string representation
+    """
 
     number_of_instances = 0
     print_symbol = '#'
