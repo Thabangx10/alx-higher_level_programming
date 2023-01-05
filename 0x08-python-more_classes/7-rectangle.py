@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 """Defining a rectangle"""
+
 
 class Rectangle:
     """Rectangle functions
@@ -60,7 +60,7 @@ class Rectangle:
             return rect
 
         for i in range(self.__height):
-            for i2 in range(self.width):
+            for i2 in range(self.__width):
                 rect += str(self.print_symbol)
             if i != self.__height - 1:
                 rect += '\n'
