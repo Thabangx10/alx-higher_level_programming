@@ -6,6 +6,8 @@ matrix_divided:
     Returns:
     the divided matrix
 """
+
+
 def matrix_divided(matrix, div):
     """
     Divides all given elements by (div).
@@ -23,7 +25,7 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("div cannot be divided by 0")
 
-    for list in matrix:
+    for lists in matrix:
         if len(lists) != len(matrix[0]):
             raise TypeError(test_1)
         inner_list = []
