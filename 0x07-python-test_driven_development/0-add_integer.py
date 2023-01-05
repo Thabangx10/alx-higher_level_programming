@@ -4,6 +4,8 @@ add_integer:
     Checks if the parameters are(int) datatypes
     Return a sum
 """
+
+
 def add_integer(a, b=98):
     """
     check if data is int.
