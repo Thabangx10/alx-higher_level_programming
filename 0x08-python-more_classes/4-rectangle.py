@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
 """Defining of a rectangle"""
+
 
 class Rectangle:
     """Representation of a rectangle"""
@@ -69,7 +69,7 @@ class Rectangle:
         return rect
 
     def __repr__(self):
-        """eval() function to return the rectangles width and height"""
+        """eval() function to return the width and height"""
         w = str(self.__width)
         h = str(self.__height)
 
