@@ -13,7 +13,7 @@ class Rectangle:
     def __int__(self, width=0, height=0):
         """Initialization
         """
-        Rectangle.number_of_instances += 1
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
