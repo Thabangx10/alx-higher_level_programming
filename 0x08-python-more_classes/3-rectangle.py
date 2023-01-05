@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defining a Rectangle"""
 
+
 class Rectangle:
     """Rectangle functions and attributes."""
 
@@ -19,11 +20,12 @@ class Rectangle:
 
     @property
     def width(self):
-        """Get/Set the width of the rectangle"""
+        """Get the width of the rectangle"""
         return self.__width
 
     @width.setter
-    def width(self, values):
+    def width(self, value):
+        """Set the width"""
         if type(value) != int:
             raise TypeError("value must be an integer")
         if value < 0:
@@ -32,11 +34,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get\Set the height of the rectangle"""
+        """Get the height of the rectangle"""
         return self.__height
 
     @height.setter
-    def height(self, values):
+    def height(self, value):
+        """Set the height"""
         if type(value) != int:
             raise TypeError("value must be an integer")
         if value < 0:
