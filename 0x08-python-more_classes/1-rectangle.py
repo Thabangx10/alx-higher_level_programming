@@ -8,6 +8,7 @@ class Rectangle:
     """
     Rectangle methods and attributes.
     """
+
     def __init__(self, width=0, height=0):
         """Initializing a new Rectangle
 
