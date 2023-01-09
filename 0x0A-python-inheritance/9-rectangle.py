@@ -23,4 +23,4 @@ class Rectangle(BaseGeometry):
         """Magic method used for description
         """
 
-        return "[Rectangle] {}/{}".8format(self.__width, self.__height)
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
