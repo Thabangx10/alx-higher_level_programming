@@ -2,20 +2,10 @@
 """read_lines
 """
 
-import os
 
-
-def read_lines(filename="", nb_lines=0):
+def read_lines(filename="", text=""):
     """Takes in str filename to read, and n lines w/ int nb_lines
     """
 
-    with open(filename, encoding="utf-8") as readFile:
-        lineNum = 0
-        while True:
-            line = readFile.readline()
-            lineNum += 1
-            print(line, end='')
-            if lineNum >= nb_lines and nb_lines > 0:
-                break
-            if not line:
-                break
+    with open(filename,"a", encoding="utf-8") as readFile:
+        return readFile.write(text)
