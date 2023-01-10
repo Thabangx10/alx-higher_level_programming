@@ -2,6 +2,7 @@
 """inherits_from
 """
 
+
 def inherits_from(obj, a_class):
     """Function:
                Returns 'True', if obj has been directly inherited
