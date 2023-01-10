@@ -2,8 +2,9 @@
 """Lookup
 """
 
+
 def lookup(obj):
-    """Functions that returns the methods and attributes 
+    """Functions that returns the methods and attributes
     of an object.
     """
 
