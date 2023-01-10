@@ -8,7 +8,7 @@ class Rectangle(BaseGeometry):
     """Inhertis from the parent.
     """
 
-    def __intit__(self, width, height):
+    def __init__(self, width, height):
         """function used to find the width and height of the
         rectangle.
         """
