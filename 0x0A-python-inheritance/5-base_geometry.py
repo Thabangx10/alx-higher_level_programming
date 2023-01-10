@@ -2,6 +2,7 @@
 """BaseGeometry
 """
 
+
 class BaseGeometry:
     """Base geometry"""
     pass
