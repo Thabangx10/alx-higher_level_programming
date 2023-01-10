@@ -9,5 +9,4 @@ def MyList(list):
     def print_sorted(self):
         """Prints the self in sorted format
         """
-
         print(sorted(self))
