@@ -3,12 +3,12 @@
 """
 
 def is_kind_class(obj, a_class):
-    """ Function:
-                 returns 'TRUE', if obj isinstance of the class 
-                 or the inherited obj instance from class.Otherwise return 'FALSE'
-        Parameters:
-                 obj (any) - check the object
-                 a_class (type) - the class to math the the type of 'obj' to.
+    """Returns 'TRUE', if obj isinstance of the class 
+    or the inherited obj instance from class. Otherwise return 'FALSE'
+        
+    Parameters:
+            obj (any) - check the object
+            a_class (type) - the class to math the the type of 'obj' to.
     """
 
     if isinstance(obj, a_class):
