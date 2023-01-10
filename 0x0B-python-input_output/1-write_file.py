@@ -2,7 +2,7 @@
 """Writing to a file 
 """
 
-def number_of_lines(filename="", text=""):
+def number_of_lines(filename=""):
     """
     You must use the with statement
 
