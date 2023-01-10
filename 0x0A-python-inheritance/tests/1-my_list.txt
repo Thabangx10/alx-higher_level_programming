@@ -24,7 +24,7 @@ Now use it:
 
 Basic MyList usage (pos, neg, zero):
 
-    >>> my_list = MyList()
+    >>> my_list = MyList(list)
 
     >>> my_list.append(-1)
 
@@ -50,7 +50,7 @@ Basic print_sorted usage:
 
 Big int MyList usage:
 
-    >>> my_list = MyList()
+    >>> my_list = MyList(list)
 
     >>> my_list.append(999999999999)
 
