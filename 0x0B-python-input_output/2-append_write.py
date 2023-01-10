@@ -3,7 +3,7 @@
 """
 
 
-def read_lines(filename="", text=""):
+def append_write(filename="", text=""):
     """Takes in str filename to read, and n lines w/ int nb_lines
     """
 
