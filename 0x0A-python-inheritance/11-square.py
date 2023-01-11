@@ -2,6 +2,7 @@
 """Inherits from 'RECTANGLE' which also hail from 'BaseGeometry'
 """
 
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 
