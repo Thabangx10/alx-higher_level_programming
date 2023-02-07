@@ -11,10 +11,10 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
-        self.widtg = width
+        self.width = width
         self.height = height
         self.x = x
-        sef.y = y
+        self.y = y
 
     @property
     def width(self):
@@ -74,7 +74,7 @@ class Rectangle(Base):
     def area(self):
         """Returns the area
         """
-        return self.__width * self__height
+        return self.width * self.height
 
     def display(self):
         """Return the ouput of the shape with '#'
@@ -83,37 +83,36 @@ class Rectangle(Base):
            y = is the newline
            x = is the space
         """
-        if self.__y != 0:
-            for newline in range(self.__y):
-                print()
-
-        for row in range(self.__height):
-            print((self.__x * " ") + (self.__width * '#'))
+        s = '\n' * self.y + \
+            (' ' * self.x + '#' * self.width + '\n') * self.height
+        print(s, end='')
 
     def __str__(self):
         """Formatted display
         """
-        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[{}] ({}) {}/{} - {}/{}".\
+            format(type(self).__name__, self.id, self.x, self.y, self.width, self.height)
+
+    def __update(self, id=None, width=None, height=None, x=None, y=None):
+        """Internal method that updates instance attributes via */**args."""
+        if id is not None:
+            self.id = id
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
 
     def update(self, *args, **kwargs):
-        """Update values
-        """
-        if len(kwargs) != 0:
-            foi i, x in kwargs.items():
-                setattr(self, i, x)
-        elif len(args) != 0:
-            try: 
-                self.id = args[0]
-                self.__width = args[1]
-                self.__height = args[2]
-                self.__x = args[3]
-                self.__y = args[4]
-            except IndexError:
-                pass
-        else:
-            print()
+        """Updates instance attributes via no-keyword & keyword args."""
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
     def to_dictionary(self):
-        """Dictionary representation
-        """
-        return {'id': self.__id, 'width': self.__width, 'height': self.__height, 'x': self.__x, 'y': self.__y}
+        """Returns dictionary representation of this class."""
+        return {"id": self.id, "width": self.__width, "height": self.__height,"x": self.__x, "y": self.__y}

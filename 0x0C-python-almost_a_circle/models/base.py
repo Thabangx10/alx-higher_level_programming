@@ -2,7 +2,7 @@
 """base
 """
 
-import json
+from json import dumps, loads
 import csv
 
 
@@ -12,6 +12,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """Constructor"""
         if id is not None:
             self.id = id
         else:
@@ -22,80 +23,86 @@ class Base:
     def to_json_string(list_dictionaries):
         """Json string representation
         """
-        if list_dictionaries is None or len(list_dictionaries) == 0:
+        if list_dictionaries is None or not list_dictionaries:
             return "[]"
         else:
-            return json.dumps(list_dictionaries)
+            return dumps(list_dictionaries)
 
 
     @staticmetod
     def from_json_string(json_string):
         """Json strings to list
         """
-        if type(json_string) != str or len(json_string) == 0:
+        if json_string is None or not json_string:
             return []
-        return json.loads(json_string)
+        return loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """Return all existing instances with attributes
+        """Loads instance from dictionary
         """
-        if cls.__name__ = "Rectangle":
-            temp = cls(1, 1)
-        if cls.__name__ = "Square":
-            temp = cls(1)
-
-        temp.update(**dictionary)
-        return temp
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            new = Rectangle(1,1)
+        elif cls is Square:
+            new = Sqaure(1)
+        else:
+            new = None
+        new.update(**dictionary)
+        return new
 
     @classmethod
     def save_to_file(cls, list_objs):
         """Writes to JSON string
         """
-        with open(cls.__name__ + ".json", mode="w") as write_file:
-            if list_objs is None:
-                write_file.write("[]")
-            else:
-                write_file.write(cls.to_json_string( [item.to_dictionary() for item in list_objs]))
+        if list_objs is not None:
+            list_objs = [o.to_dictionary() for o in list_objs]
+        with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as f:
+            f.write(cls.to_json_string(list_objs))
 
     @classmethod
     def load_from_file(cls):
         """Returns list of instances
         """
-
-        res = []
-        with open(cls.__name__ + ".json", mode="r") as read_file:
-            text = read_file.read()
-        text = cls.from_json_string(text)
-        for item in text:
-            if type(item) == dict:
-                res.append(cls.create(**item))
-            else:
-                res.append(item)
-        return res
+        from os import path
+        file = "{}.json".format(cls.__name__)
+        if not path.isfile(file):
+            return []
+        with open(file, "r", encoding="utf-8") as f:
+            return [cls.create(**d) for d in cls.from_json_string(f.read())]
 
     @classmethod
     def save_to_csv_file(cls, list_objs):
         """Save to csv
         """
-
-        res = [item.to_dictionary() for item in list_objs]
-        with open(cls.__name__ + ".csv", mode="w") as save_file:
-            write_to = csv.DictWriter(save_file, res[0].keys())
-            write_to.writeheader()
-            write_to.writerows(res)
+        from models.rectangle import Rectangle
+        from models.sqaure import Sqaure
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [[o.id, o.width, o.height, o.x, o.y]
+                        for o in list_objs]
+            else:
+                list_objs = [[o.id, o.size, o.x, o.y]
+                        for o in list_objs]
+        with open('{}.csv'.format(cls.__name__), 'w', newline='',encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerows(list_objs)
 
     @classmethod
     def load_from_file_csv(cls):
         """Loads from csv file
         """
-
-        res = []
-        res_dict = {}
-        with open(cls.__name__ + ".csv", mode="r") as read_file:
-            read_from = csv.DictReader(read_file)
-            for item in read_from:
-                for x, i in dict(item).items():
-                    res_dict[x] = int(i)
-                res.append(cls.create(**res_dict))
-        return res
+        from models.rectangle import Rectangle
+        from models.sqaure import Square
+        ret = []
+        with open('{}.csv'.format(cls.__name__), 'r', newline='',encoding='utf-8') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                row = [int(r) for r in row]
+                if cls is Rectangle:
+                    d = {"id": row[0], "width": row[1], "height": row[2],"x": row[3], "y": row[4]}
+                else:
+                    d = {"id": row[0], "size": row[1],"x": row[2], "y": row[3]}
+                    ret.append(cls.create(**d))
+        return ret

@@ -10,10 +10,16 @@ class Square(Rectangle):
     """
 
     def __init__(self, size, x=0, y=0, id=None):
-        super().__init__(width=size, height=size, x=x, y=y, id=id)
+        super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        """Returns string info about this square."""
+        return '[{}] ({}) {}/{} - {}'.\
+                format(type(self).__name__, self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
+        """Size of the square"""
         return self.width
 
     @size.setter
@@ -24,26 +30,23 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def __str__(self):
-        """Return formatted display
-        """
-
-        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id, self.x, self.y, self.width)
+    def __update(self, id=None, size=None, x=None, y=None):
+        """Internal method that updates instance attributes via */**args"""
+        if id is not None:
+            self.id = id
+        if size is not None:
+            self.size = size
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
 
     def update(self, *args, **kwargs):
-        if len(kwargs) != 0:
-            for x, i in kwargs.items():
-                setattr(self, x, i)
-            elif len(args) != 0:
-                try:
-                    self.id = args[0]
-                    self.size = args[1]
-                    self.x = args[2]
-                    self.y = args[3]
-                except IndexError:
-                    pass
-            else:
-                print()
+        """Updates instance attributes via no-keyword & keyword args."""
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
     def to_dictionary(self):
         """Dictionary representation
