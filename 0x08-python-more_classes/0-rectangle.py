@@ -2,6 +2,7 @@
 """Defining a rectangle."""
 
 
+
 class Rectangle:
     """Rectangle functions."""
     pass
