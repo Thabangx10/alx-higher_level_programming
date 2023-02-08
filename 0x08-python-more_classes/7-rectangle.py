@@ -58,27 +58,23 @@ class Rectangle:
 
     def __str__(self):
         """Represent the rectangle with '#' characters"""
-        rect = ""
         if self.__width == 0 or self.__height == 0:
-            return rect
+            return ("")
 
+        rect = []
         for i in range(self.__height):
-            for i2 in range(self.__width):
-                rect += str(self.print_symbol)
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
             if i != self.__height - 1:
-                rect += '\n'
-        return rect
+                rect.append("\n")
+        return ("".join(rect))
 
     def __repr__(self):
         """eval() method to return width and height"""
-
-        w = str(self.__width)
-        h = str(self.__height)
-
-        rect = "Rectangle(" + w + ", " + h + ")"
-        return rect
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
 
     def __del__(self):
         """increment instance when __del__ is called"""
-        print("Bye rectangle...")
         type(self).number_of_instances -= 1
+        print("Bye rectangle...")
